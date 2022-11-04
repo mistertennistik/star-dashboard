@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-container>
+
+          <h1>Stations Vélos Rennes</h1>
+          <template>
+            <v-simple-table
+              fixed-header
+              height="300px"
+              dark
+            >
+              <template v-slot:default>
+                <thead>
+                  <tr>
+                    <th class="text-left">
+                      Station
+                    </th>
+                    <th class="text-left">
+                      Velos
+                    </th>
+                    <th class="text-left">
+                      Places
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    v-for="item in store.bikesData"
+                    :key="item.station"
+                  >
+                    <td>{{ item.station }}</td>
+                    <td>{{ item.velos_dispo }}</td>
+                    <td>{{ item.places_dispo }}</td>
+                  </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
+          </template>
+          
+          <div style="height: 100px;">
+
+          </div>
+
+          <h1>Horaires Bus</h1>
+          <template>
+            <v-simple-table
+              fixed-header
+              height="300px"
+              dark
+            >
+              <template v-slot:default>
+                <thead>
+                  <tr>
+                    <th class="text-left">
+                      Horaires Vieux Bourg --> Rennes
+                    </th>
+                    <th class="text-left">
+                      Théorique
+                    </th>
+                    <th class="text-left">
+                      Estimé
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    v-for="item in store.busData"
+                    :key="item"
+                  >
+                    <td></td>
+                    <td>{{ new Date(item.theorique).toLocaleString()  }}</td>
+                    <td>{{new Date(item.estimee).toLocaleString()  }}</td>
+
+
+                  </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
+          </template>
+
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="data.service.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: ()=>{
+        return {
+          store: null
+        }
+      },
+      methods:{
+      initData: async function() {
+        init().then((res)=>{
+          console.log(res)
+          this.store = res;    
+        });
+      }
+      },
+      async beforeMount(){
+        await this.initData(); 
+      },
+      vuetify: new Vuetify(),
+    })
+  </script>
+</body>
+</html>
+
+
+
