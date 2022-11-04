@@ -1,2 +1,4 @@
 __pycache__/
 dashboard-api-venv/
+Dockerfile
+.dockerignore

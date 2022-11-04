@@ -1,5 +1,5 @@
 
-printf " \n\n******** Supression en force des container 'star' ...************ \n\n"
+printf " \n\n******** Supression en force des containers 'star' ...************ \n\n"
 docker rm -f $(docker ps -a --filter name=star* -q);
 
 
