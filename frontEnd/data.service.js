@@ -73,22 +73,3 @@ function makeRequest(aPath, aReq ,aCallBack){
     aReq.send();
 }
  
-
-function makeList(listTitle, aList){
-    let data = aList;
-    let listContainer = document.createElement("div");
-    listContainer.setAttribute("id", listTitle+"container");
-    listContainer.innerHTML=listTitle;
-
-    let list = document.createElement("ul");
-
-    data.forEach((item)=>{
-        let li = document.createElement("li");
-        li.innerText = JSON.stringify(item,null,4);
-        list.appendChild(li);
-    });
-
-    listContainer.appendChild(list);
-    document.body.appendChild(listContainer);
-
-}
