@@ -1,5 +1,5 @@
 var store = {};
-const BASE_PATH = 'http://localhost:5000';
+
 
 function init(){
 
