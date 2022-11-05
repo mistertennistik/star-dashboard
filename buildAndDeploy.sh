@@ -28,6 +28,12 @@ printf "Argument api_base_path is %s\n" "$api_base_path"
 ## @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
+######## call clean script %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+printf " \n\n******** Call cleaning script ... ************ \n\n"
+bash ./clean.sh
+
+######## %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 ######################  Manage config.js file <<<<<<<<<<<<<<<
 printf " \n\n******** remplacement du BASE_PATH dans le fichier de config ... ************ \n\n"
 
