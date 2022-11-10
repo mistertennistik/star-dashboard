@@ -1,3 +1,4 @@
 backEnd/__pycache__/
 backEnd/dashboard-api-venv/
 frontEnd/config.js
+.env

@@ -1,0 +1,22 @@
+version: '3'
+services:
+  api:
+    image: star_api_image
+    build: ./backEnd
+    ports:
+      - "5000:5000"
+    networks:
+      - star_app_net
+  
+  ui:
+    image: star_ui_image
+    build: ./frontEnd
+    ports:
+      - "8080:80"
+    networks:
+      - star_app_net
+    env_file:
+      - .env
+
+networks:
+  star_app_net:

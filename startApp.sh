@@ -1,1 +1,1 @@
-docker start $(docker ps -a --filter name=star* -q);
+docker-compose up -d;
