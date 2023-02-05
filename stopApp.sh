@@ -1,1 +1,1 @@
-docker stop $(docker ps -a --filter name=star* -q);
+docker-compose down;
