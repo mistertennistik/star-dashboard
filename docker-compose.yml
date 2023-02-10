@@ -12,7 +12,7 @@ services:
     image: star_ui_image
     build: ./frontEnd
     ports:
-      - "8080:80"
+      - "${DOCKER_HOST_FRONT_PORT}:80"
     networks:
       - star_app_net
     env_file:
